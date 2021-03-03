@@ -9,12 +9,23 @@ namespace TestWorkASU.Model
 {
     class ListPossibleFunctions
     {
-        private ObservableCollection<string> listFunctions = new ObservableCollection<string> { "линейная", "квадратичная", "кубическая", "4-ой степени", "5-ой степени" };
-        public ObservableCollection<string> ListFunctions
+        private static Dictionary<string, int> listFunctions = new Dictionary<string, int>
         {
-            get => listFunctions;
+            { "линейная", 1 },
+            { "квадратичная", 2 },
+            { "кубическая", 3 },
+            { "4-ой степени", 4 },
+            { "5-ой степени", 5 }
+        };
 
-            set => listFunctions = value;
-        }       
-    }
+        public static Dictionary<string, int> ListFunctions { get; }
+
+        public static ObservableCollection<string> GetListFunctions ()
+        {
+            var functions = new ObservableCollection<string>();
+            foreach (var func in listFunctions)
+                functions.Add(func.Key);
+            return functions;
+        }
+    }     
 }
