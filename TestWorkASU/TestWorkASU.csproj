@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\ListPossibleFunctions.cs" />
     <Compile Include="ViewModel\Base\BaisViewModel.cs" />
     <Compile Include="ViewModel\Base\ButtonCommand.cs" />
     <Compile Include="ViewModel\LambdaCommand.cs" />
@@ -98,8 +99,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
