@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestWorkASU.Model
 {
-    class ListPossibleFunctions
+    static class ListPossibleFunctions
     {
         private static Dictionary<string, int> listFunctions = new Dictionary<string, int>
         {
@@ -18,7 +18,10 @@ namespace TestWorkASU.Model
             { "5-ой степени", 4 }
         };
 
-        public static Dictionary<string, int> ListFunctions { get; }
+        public static Dictionary<string, int> ListFunctions 
+        {
+            get => listFunctions;           
+        }
 
         public static ObservableCollection<string> GetListFunctions ()
         {

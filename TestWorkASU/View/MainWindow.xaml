@@ -20,6 +20,7 @@
                 <ColumnDefinition Width="1*"/>                
             </Grid.ColumnDefinitions>
             <ListBox ItemsSource="{Binding ListFunctions}"
+                      SelectedItem="{Binding SelectedFunction}"
                 Grid.Column="0" Width="auto" Height="auto" Margin="20">
                 
             </ListBox>
@@ -29,8 +30,8 @@
                 <Label>Коэффициент "b"</Label>
                 <TextBox Margin="20,0"/>
                 <Label>Коэффициент "c"</Label>
-                <ComboBox Width="100" Margin="20,0,0,0" HorizontalAlignment="Left">
-                    <ComboBoxItem>1</ComboBoxItem>
+                <ComboBox ItemsSource="{Binding CoefficientCValues}"
+                    Width="100" Margin="20,0,0,0" HorizontalAlignment="Left">
                 </ComboBox>
             </StackPanel>
         </Grid>

@@ -12,6 +12,20 @@ namespace TestWorkASU.ViewModel
     class MainViewModel : BaisViewModel
     {
         private ObservableCollection<string> listFunctions;
+        private ObservableCollection<int> coefficientCValues;
+        private string selectedFunction;
+
+        public string SelectedFunction
+        {
+            get => selectedFunction;
+
+            set
+            {                
+                Set(ref selectedFunction, value);
+                CoefficientCValues = CValues.GetCValues(ListPossibleFunctions.ListFunctions[SelectedFunction]);
+
+            }
+        }
         public ObservableCollection<string> ListFunctions
         {
             get => listFunctions;
@@ -19,9 +33,16 @@ namespace TestWorkASU.ViewModel
             set => Set(ref listFunctions, value);
         }
 
+        public ObservableCollection<int> CoefficientCValues
+        {
+            get => coefficientCValues;
+
+            set => Set(ref coefficientCValues, value);
+        }
+
         public MainViewModel()
         {
-            ListFunctions = new ListPossibleFunctions().ListFunctions;
+            ListFunctions = ListPossibleFunctions.GetListFunctions();            
         }
     }
 }
