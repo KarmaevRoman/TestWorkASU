@@ -11,11 +11,11 @@ namespace TestWorkASU.Model
     {
         private static Dictionary<string, int> listFunctions = new Dictionary<string, int>
         {
-            { "линейная", 1 },
-            { "квадратичная", 2 },
-            { "кубическая", 3 },
-            { "4-ой степени", 4 },
-            { "5-ой степени", 5 }
+            { "линейная", 0 },
+            { "квадратичная", 1 },
+            { "кубическая", 2 },
+            { "4-ой степени", 3 },
+            { "5-ой степени", 4 }
         };
 
         public static Dictionary<string, int> ListFunctions { get; }
