@@ -26,9 +26,12 @@
             </ListBox>
             <StackPanel Grid.Column="1" Orientation="Vertical">
                 <Label>Коэффициент "a"</Label>
-                <TextBox Margin="20,0"/>
+                <TextBox Text="{Binding ACofficient, UpdateSourceTrigger=PropertyChanged}"
+                    Margin="20,0">                    
+                </TextBox>
                 <Label>Коэффициент "b"</Label>
-                <TextBox Margin="20,0"/>
+                <TextBox Text="{Binding BCofficient, UpdateSourceTrigger=PropertyChanged}"
+                    Margin="20,0"/>
                 <Label>Коэффициент "c"</Label>
                 <ComboBox ItemsSource="{Binding CoefficientCValues}"
                     Width="100" Margin="20,0,0,0" HorizontalAlignment="Left">

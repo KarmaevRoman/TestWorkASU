@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using TestWorkASU.ViewModel.Base;
 using TestWorkASU.Model;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
 
 namespace TestWorkASU.ViewModel
 {
@@ -14,6 +16,45 @@ namespace TestWorkASU.ViewModel
         private ObservableCollection<string> listFunctions;
         private ObservableCollection<int> coefficientCValues;
         private string selectedFunction;
+        private string aCofficient;
+        private string bCofficient;
+
+        public string ACofficient
+        {
+            get => aCofficient;
+
+            set
+            {
+                double a;
+                if (double.TryParse(value, out a) || string.IsNullOrEmpty(value))
+                {
+                    Set(ref aCofficient, value);                     
+                }
+                else
+                {   
+                    ACofficient = aCofficient;
+                }
+
+            }
+        }
+        public string BCofficient
+        {
+            get => bCofficient;
+
+            set
+            {
+                double b;
+                if (double.TryParse(value, out b) || string.IsNullOrEmpty(value))
+                {
+                    Set(ref bCofficient, value);
+                }
+                else
+                {
+                    BCofficient = bCofficient;
+                }
+
+            }
+        }
 
         public string SelectedFunction
         {
@@ -44,5 +85,6 @@ namespace TestWorkASU.ViewModel
         {
             ListFunctions = ListPossibleFunctions.GetListFunctions();            
         }
+       
     }
 }
