@@ -9,17 +9,12 @@ namespace TestWorkASU.Model
 {
     class ListPossibleFunctions
     {
-        private ObservableCollection<string> listFunctions;
+        private ObservableCollection<string> listFunctions = new ObservableCollection<string> { "линейная", "квадратичная", "кубическая", "4-ой степени", "5-ой степени" };
         public ObservableCollection<string> ListFunctions
         {
             get => listFunctions;
 
             set => listFunctions = value;
-        }
-
-        public ListPossibleFunctions()
-        {
-            listFunctions = new ObservableCollection<string> { "линейная", "квадратичная", "кубическая", "4-ой степени", "5-ой степени" };
-        }
+        }       
     }
 }
