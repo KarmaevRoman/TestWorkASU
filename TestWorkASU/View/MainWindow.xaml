@@ -38,7 +38,7 @@
                 <TextBox Text="{Binding BCofficient, UpdateSourceTrigger=PropertyChanged}"
                    Margin="5,0,20,0"/>
                 <Label>Коэффициент "c"</Label>
-                <ComboBox ItemsSource="{Binding CoefficientCValues}"
+                <ComboBox ItemsSource="{Binding CoefficientCValues}" SelectedItem="{Binding CCoefficient, UpdateSourceTrigger=PropertyChanged}"
                     Width="100" Margin="5,0,20,0" HorizontalAlignment="Left">
                 </ComboBox>
             </StackPanel>
@@ -48,7 +48,7 @@
                 <ColumnDefinition Width="0,65*"/>
                 <ColumnDefinition Width="0,35*"/>
             </Grid.ColumnDefinitions>
-            <ListView ItemsSource="{Binding ComponentFuctions}"
+            <ListView ItemsSource="{Binding ComponentFunctionsVM}"
                 Width="auto" Height="auto" Margin="20,20" Grid.Column="0">
                 <ListView.View>
                     <GridView>
