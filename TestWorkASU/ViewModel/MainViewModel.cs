@@ -22,16 +22,16 @@ namespace TestWorkASU.ViewModel
         private int cCofficient;
         private ComponentFunctionVM selectedFunctionVM;
 
-        public ComponentFunctionVM SelectedFunctionVM
+        public ObservableCollection<string> ListFunctions
         {
-            get => selectedFunctionVM;
-            set => Set(ref selectedFunctionVM, value);
+            get => listFunctions;
+            set => Set(ref listFunctions, value);
         }
 
-        public int CCoefficient
+        public ObservableCollection<int> CoefficientCValues
         {
-            get => cCofficient;
-            set => Set(ref cCofficient, value);
+            get => coefficientCValues;
+            set => Set(ref coefficientCValues, value);
         }
 
         public ObservableCollection<ComponentFunctionVM> ComponentFunctionsVM
@@ -40,40 +40,63 @@ namespace TestWorkASU.ViewModel
             set => Set(ref componentFunctionsVM, value);
         }
 
+        public string SelectedNameFunc
+        {
+            get => selectedNameFunc;
+            set
+            {
+                Set(ref selectedNameFunc, value);
+                if (SelectedNameFunc != null)
+                CoefficientCValues = CValues.GetCValues(ListPossibleFunctions.ListFunctions[SelectedNameFunc]);
+                if (componentFunctionsVM.Count >= 1 && SelectedNameFunc!=null && SelectedFunctionVM!=null)
+                SelectedFunctionVM.NameFunction = value;
+                CCoefficient = coefficientCValues[0];
+            }
+        }
+
         public string ACofficient
         {
             get => aCofficient;
             set
-            {                
+            {
                 if (double.TryParse(value, out double a))
                 {
-                    Set(ref aCofficient, value);                     
+                    Set(ref aCofficient, value);
+                    if (ComponentFunctionsVM.Count >= 1 && selectedFunctionVM!=null)
+                        selectedFunctionVM.ACoefficient = double.Parse(value);
                 }
                 else if (string.IsNullOrEmpty(value))
                 {
                     Set(ref aCofficient, "0");
+                    if (ComponentFunctionsVM.Count >= 1 && selectedFunctionVM != null)
+                        selectedFunctionVM.ACoefficient = 0;
                 }
                 else
-                {   
+                {
                     ACofficient = aCofficient;
                 }
+                
 
             }
         }
+
         public string BCofficient
         {
             get => bCofficient;
-
             set
             {
                 double b;
                 if (double.TryParse(value, out b))
                 {
                     Set(ref bCofficient, value);
+                    if (ComponentFunctionsVM.Count >= 1 && selectedFunctionVM != null)
+                        selectedFunctionVM.BCoefficient = double.Parse(value);
                 }
                 else if (string.IsNullOrEmpty(value))
                 {
                     Set(ref bCofficient, "0");
+                    if (ComponentFunctionsVM.Count >= 1 && selectedFunctionVM != null)
+                        selectedFunctionVM.BCoefficient = 0;
                 }
                 else
                 {
@@ -83,30 +106,31 @@ namespace TestWorkASU.ViewModel
             }
         }
 
-        public string SelectedNameFunc
+        public int CCoefficient
         {
-            get => selectedNameFunc;
-
+            get => cCofficient;
             set
-            {                
-                Set(ref selectedNameFunc, value);
-                CoefficientCValues = CValues.GetCValues(ListPossibleFunctions.ListFunctions[SelectedNameFunc]);
+            {
+                Set(ref cCofficient, value);
+                if (ComponentFunctionsVM.Count >= 1 && selectedFunctionVM != null)
+                    selectedFunctionVM.CCoefficient = value;
 
             }
+
         }
-        public ObservableCollection<string> ListFunctions
+
+        public ComponentFunctionVM SelectedFunctionVM
         {
-            get => listFunctions;
-
-            set => Set(ref listFunctions, value);
-        }
-
-        public ObservableCollection<int> CoefficientCValues
-        {
-            get => coefficientCValues;
-
-            set => Set(ref coefficientCValues, value);
-        }
+            get => selectedFunctionVM;
+            set
+            {
+                Set(ref selectedFunctionVM, value);
+                SelectedNameFunc = selectedFunctionVM.NameFunction;
+                ACofficient = selectedFunctionVM.ACoefficient.ToString();
+                BCofficient = selectedFunctionVM.BCoefficient.ToString();
+                CCoefficient = selectedFunctionVM.CCoefficient;
+            }
+        }           
         
         public ICommand AddElement { get; }
 
