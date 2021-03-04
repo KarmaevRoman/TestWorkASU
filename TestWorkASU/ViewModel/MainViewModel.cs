@@ -15,27 +15,29 @@ namespace TestWorkASU.ViewModel
     {
         private ObservableCollection<string> listFunctions;
         private ObservableCollection<int> coefficientCValues;
-        private ObservableCollection<ComponentFuction> componentFuctions;
+        private ObservableCollection<ComponentFunctionVM> componentFunctionsVM;
         private string selectedFunction;
         private string aCofficient;
         private string bCofficient;
 
-        public ObservableCollection<ComponentFuction> ComponentFuctions
+        public ObservableCollection<ComponentFunctionVM> ComponentFunctionsVM
         {
-            get => componentFuctions;
-            set => Set(ref componentFuctions, value);
+            get => componentFunctionsVM;
+            set => Set(ref componentFunctionsVM, value);
         }
 
         public string ACofficient
         {
             get => aCofficient;
-
             set
-            {
-                double a;
-                if (double.TryParse(value, out a) || string.IsNullOrEmpty(value))
+            {                
+                if (double.TryParse(value, out double a) || string.IsNullOrEmpty(value))
                 {
                     Set(ref aCofficient, value);                     
+                }
+                else if (string.IsNullOrEmpty(value))
+                {
+                    Set(ref aCofficient,"0");
                 }
                 else
                 {   
@@ -54,6 +56,10 @@ namespace TestWorkASU.ViewModel
                 if (double.TryParse(value, out b) || string.IsNullOrEmpty(value))
                 {
                     Set(ref bCofficient, value);
+                }
+                else if (string.IsNullOrEmpty(value))
+                {
+                    Set(ref bCofficient, "0");
                 }
                 else
                 {
@@ -93,7 +99,7 @@ namespace TestWorkASU.ViewModel
         public MainViewModel()
         {
             ListFunctions = ListPossibleFunctions.GetListFunctions();
-            ComponentFuctions = new ObservableCollection<ComponentFuction>();            
+            ComponentFunctionsVM = new ObservableCollection<ComponentFunctionVM>();            
             AddElement = new LambdaCommand(OnAddElementExecute, CanAddElementExecute);
         }
         private bool CanAddElementExecute(object p) => true;
