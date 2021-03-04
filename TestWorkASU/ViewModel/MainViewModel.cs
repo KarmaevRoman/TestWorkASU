@@ -19,6 +19,13 @@ namespace TestWorkASU.ViewModel
         private string selectedFunction;
         private string aCofficient;
         private string bCofficient;
+        private int cCofficient;
+
+        public int CCoefficient
+        {
+            get => cCofficient;
+            set => Set(ref cCofficient, value);
+        }
 
         public ObservableCollection<ComponentFunctionVM> ComponentFunctionsVM
         {
@@ -106,7 +113,11 @@ namespace TestWorkASU.ViewModel
 
         private void OnAddElementExecute(object p)
         {
-            
+            ComponentFunctionsVM.Add(new ComponentFunctionVM() { 
+                ACoefficient = double.Parse(aCofficient), 
+                BCoefficient = double.Parse(bCofficient),
+                CCoefficient = cCofficient,
+                NameFunction = selectedFunction});
         }
     }
 }
