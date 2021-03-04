@@ -24,7 +24,7 @@ namespace TestWorkASU.ViewModel
 
         public ComponentFunctionVM SelectedFunctionVM
         {
-            get => SelectedFunctionVM;
+            get => selectedFunctionVM;
             set => Set(ref selectedFunctionVM, value);
         }
 
@@ -90,7 +90,7 @@ namespace TestWorkASU.ViewModel
             set
             {                
                 Set(ref selectedNameFunc, value);
-                CoefficientCValues = CValues.GetCValues(ListPossibleFunctions.ListFunctions[SelectedFunction]);
+                CoefficientCValues = CValues.GetCValues(ListPossibleFunctions.ListFunctions[SelectedNameFunc]);
 
             }
         }
