@@ -64,6 +64,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\CoefficientCValues.cs" />
+    <Compile Include="Model\ComponentFuction.cs" />
     <Compile Include="Model\ListPossibleFunctions.cs" />
     <Compile Include="ViewModel\Base\BaisViewModel.cs" />
     <Compile Include="ViewModel\Base\ButtonCommand.cs" />
