@@ -57,14 +57,14 @@
                         <GridViewColumn Width="50" Header="x">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox Margin="0" Height="auto" Width="40" Text="{Binding X}"/>
+                                    <TextBox Margin="0" Height="auto" Width="40" Text="{Binding X, UpdateSourceTrigger=PropertyChanged}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Width="50" Header="y">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox Margin="0" Height="auto" Width="40" Text="{Binding Y}"/>
+                                    <TextBox Margin="0" Height="auto" Width="40" Text="{Binding Y, UpdateSourceTrigger=PropertyChanged}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
