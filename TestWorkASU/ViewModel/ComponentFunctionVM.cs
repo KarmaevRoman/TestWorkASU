@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestWorkASU.ViewModel.Base;
+using TestWorkASU.Model;
 
-namespace TestWorkASU.Model
+namespace TestWorkASU.ViewModel
 {
-    class ComponentFuction
+    class ComponentFunctionVM : BaseViewModel
     {
         private string nameFunction;
         private double aCoefficient;
@@ -16,13 +18,13 @@ namespace TestWorkASU.Model
         private double y;
         private double result;
 
-        public string NameFunction 
+        public string NameFunction
         {
             get => nameFunction;
             set
             {
-                nameFunction = value;                
-                CalculateResult();
+                Set(ref nameFunction,value);
+                Result = CalculateResult.Result(this);
             }
         }
         public double ACoefficient
@@ -30,8 +32,8 @@ namespace TestWorkASU.Model
             get => aCoefficient;
             set
             {
-                aCoefficient = value;
-                CalculateResult();
+                Set(ref aCoefficient, value);
+                Result = CalculateResult.Result(this);
             }
         }
         public double BCoefficient
@@ -39,8 +41,8 @@ namespace TestWorkASU.Model
             get => bCoefficient;
             set
             {
-                bCoefficient = value;
-                CalculateResult();
+                Set(ref bCoefficient, value);
+                Result = CalculateResult.Result(this);
             }
         }
         public int CCoefficient
@@ -48,8 +50,8 @@ namespace TestWorkASU.Model
             get => cCoefficient;
             set
             {
-                cCoefficient = value;
-                CalculateResult();
+                Set(ref cCoefficient, value);
+                Result = CalculateResult.Result(this);
             }
         }
         public double X
@@ -57,8 +59,8 @@ namespace TestWorkASU.Model
             get => x;
             set
             {
-                x = value;
-                CalculateResult();
+                Set(ref x, value);
+                Result = CalculateResult.Result(this);
             }
         }
         public double Y
@@ -66,19 +68,14 @@ namespace TestWorkASU.Model
             get => y;
             set
             {
-                y = value;
-                CalculateResult();
+                Set(ref y, value);
+                Result = CalculateResult.Result(this);
             }
         }
         public double Result
         {
-            get => result;            
-        }
-
-        private void CalculateResult()
-        {
-            if (!string.IsNullOrEmpty(nameFunction))
-            result = aCoefficient * Math.Pow(x, ListPossibleFunctions.ListFunctions[nameFunction] + 1) + bCoefficient * Math.Pow(y, ListPossibleFunctions.ListFunctions[nameFunction]) + cCoefficient;
+            get => result;
+            private set => Set(ref result, value);
         }
     }
 }
