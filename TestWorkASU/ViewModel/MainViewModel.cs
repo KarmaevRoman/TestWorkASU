@@ -17,8 +17,8 @@ namespace TestWorkASU.ViewModel
         private ObservableCollection<int> coefficientCValues;
         private ObservableCollection<ComponentFunctionVM> componentFunctionsVM;
         private string selectedFunction;
-        private string aCofficient;
-        private string bCofficient;
+        private string aCofficient = "0";
+        private string bCofficient = "0";
         private int cCofficient;
 
         public int CCoefficient
@@ -38,13 +38,13 @@ namespace TestWorkASU.ViewModel
             get => aCofficient;
             set
             {                
-                if (double.TryParse(value, out double a) || string.IsNullOrEmpty(value))
+                if (double.TryParse(value, out double a))
                 {
                     Set(ref aCofficient, value);                     
                 }
                 else if (string.IsNullOrEmpty(value))
                 {
-                    Set(ref aCofficient,"0");
+                    Set(ref aCofficient, "0");
                 }
                 else
                 {   
@@ -60,7 +60,7 @@ namespace TestWorkASU.ViewModel
             set
             {
                 double b;
-                if (double.TryParse(value, out b) || string.IsNullOrEmpty(value))
+                if (double.TryParse(value, out b))
                 {
                     Set(ref bCofficient, value);
                 }
