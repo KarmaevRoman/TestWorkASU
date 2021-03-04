@@ -71,7 +71,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button Width="110" Height="30" Content="Добавить строку" Grid.Column="1" HorizontalAlignment="Center"/>
+            <Button Width="110" Height="30" Content="Добавить строку" Grid.Column="1" HorizontalAlignment="Center" Command="{Binding AddElement}"/>
         </Grid>
 
     </Grid>

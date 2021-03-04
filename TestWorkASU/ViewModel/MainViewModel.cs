@@ -87,12 +87,20 @@ namespace TestWorkASU.ViewModel
 
             set => Set(ref coefficientCValues, value);
         }
+        
+        public ICommand AddElement { get; }
 
         public MainViewModel()
         {
             ListFunctions = ListPossibleFunctions.GetListFunctions();
-            ComponentFuctions = new ObservableCollection<ComponentFuction>();
+            ComponentFuctions = new ObservableCollection<ComponentFuction>();            
+            AddElement = new LambdaCommand(OnAddElementExecute, CanAddElementExecute);
         }
-       
+        private bool CanAddElementExecute(object p) => true;
+
+        private void OnAddElementExecute(object p)
+        {
+            
+        }
     }
 }
