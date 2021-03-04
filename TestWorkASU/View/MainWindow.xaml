@@ -48,22 +48,23 @@
                 <ColumnDefinition Width="0,65*"/>
                 <ColumnDefinition Width="0,35*"/>
             </Grid.ColumnDefinitions>
-            <ListView Width="auto" Height="auto" Margin="20,20" Grid.Column="0">
+            <ListView ItemsSource="{Binding ComponentFuctions}"
+                Width="auto" Height="auto" Margin="20,20" Grid.Column="0">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="150" Header="Тип функции"/>
-                        <GridViewColumn Width="50" Header="f(x,y)"/>
+                        <GridViewColumn Width="150" Header="Тип функции" DisplayMemberBinding="{Binding NameFunction}"/>
+                        <GridViewColumn Width="50" Header="f(x,y)" DisplayMemberBinding="{Binding Result}"/>
                         <GridViewColumn Width="50" Header="x">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox Margin="0" Height="auto" Width="40"/>
+                                    <TextBox Margin="0" Height="auto" Width="40" Text="{Binding X}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Width="50" Header="y">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBox Margin="0" Height="auto" Width="40"/>
+                                    <TextBox Margin="0" Height="auto" Width="40" Text="{Binding Y}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

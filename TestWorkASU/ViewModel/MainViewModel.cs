@@ -15,9 +15,16 @@ namespace TestWorkASU.ViewModel
     {
         private ObservableCollection<string> listFunctions;
         private ObservableCollection<int> coefficientCValues;
+        private ObservableCollection<ComponentFuction> componentFuctions;
         private string selectedFunction;
         private string aCofficient;
         private string bCofficient;
+
+        public ObservableCollection<ComponentFuction> ComponentFuctions
+        {
+            get => componentFuctions;
+            set => Set(ref componentFuctions, value);
+        }
 
         public string ACofficient
         {
@@ -83,7 +90,8 @@ namespace TestWorkASU.ViewModel
 
         public MainViewModel()
         {
-            ListFunctions = ListPossibleFunctions.GetListFunctions();            
+            ListFunctions = ListPossibleFunctions.GetListFunctions();
+            ComponentFuctions = new ObservableCollection<ComponentFuction>();
         }
        
     }
