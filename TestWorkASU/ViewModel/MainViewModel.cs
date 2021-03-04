@@ -16,10 +16,17 @@ namespace TestWorkASU.ViewModel
         private ObservableCollection<string> listFunctions;
         private ObservableCollection<int> coefficientCValues;
         private ObservableCollection<ComponentFunctionVM> componentFunctionsVM;
-        private string selectedFunction;
+        private string selectedNameFunc;
         private string aCofficient = "0";
         private string bCofficient = "0";
         private int cCofficient;
+        private ComponentFunctionVM selectedFunctionVM;
+
+        public ComponentFunctionVM SelectedFunctionVM
+        {
+            get => SelectedFunctionVM;
+            set => Set(ref selectedFunctionVM, value);
+        }
 
         public int CCoefficient
         {
@@ -76,13 +83,13 @@ namespace TestWorkASU.ViewModel
             }
         }
 
-        public string SelectedFunction
+        public string SelectedNameFunc
         {
-            get => selectedFunction;
+            get => selectedNameFunc;
 
             set
             {                
-                Set(ref selectedFunction, value);
+                Set(ref selectedNameFunc, value);
                 CoefficientCValues = CValues.GetCValues(ListPossibleFunctions.ListFunctions[SelectedFunction]);
 
             }
@@ -117,7 +124,7 @@ namespace TestWorkASU.ViewModel
                 ACoefficient = double.Parse(aCofficient), 
                 BCoefficient = double.Parse(bCofficient),
                 CCoefficient = cCofficient,
-                NameFunction = selectedFunction});
+                NameFunction = selectedNameFunc});
         }
     }
 }
