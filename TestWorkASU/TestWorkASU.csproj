@@ -64,10 +64,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\CoefficientCValues.cs" />
-    <Compile Include="Model\ComponentFuction.cs" />
+    <Compile Include="Model\CalculateResult.cs" />
     <Compile Include="Model\ListPossibleFunctions.cs" />
-    <Compile Include="ViewModel\Base\BaisViewModel.cs" />
+    <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\Base\ButtonCommand.cs" />
+    <Compile Include="ViewModel\ComponentFunctionVM.cs" />
     <Compile Include="ViewModel\LambdaCommand.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">

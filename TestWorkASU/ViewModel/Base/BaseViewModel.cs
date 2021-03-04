@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TestWorkASU.ViewModel.Base
 {
-    class BaisViewModel : INotifyPropertyChanged
+    class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

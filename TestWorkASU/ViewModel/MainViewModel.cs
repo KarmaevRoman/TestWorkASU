@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace TestWorkASU.ViewModel
 {
-    class MainViewModel : BaisViewModel
+    class MainViewModel : BaseViewModel
     {
         private ObservableCollection<string> listFunctions;
         private ObservableCollection<int> coefficientCValues;
