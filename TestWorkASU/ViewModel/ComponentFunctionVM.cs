@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestWorkASU.ViewModel.Base;
+﻿using TestWorkASU.ViewModel.Base;
 using TestWorkASU.Model;
 
 namespace TestWorkASU.ViewModel
