@@ -10,7 +10,7 @@ namespace TestWorkASU.Model
     /// <summary>
     /// статичный класс для создания коллекции возможных типов функций
     /// </summary>
-    static class ListPossibleFunctions
+    public static class ListPossibleFunctions
     {
         private static Dictionary<string, int> listFunctions = new Dictionary<string, int>
         {

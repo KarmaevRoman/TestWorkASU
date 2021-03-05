@@ -10,7 +10,7 @@ namespace TestWorkASU.Model
     /// <summary>
     /// класс для расчета значения
     /// </summary>
-    class CalculateResult
+    public class CalculateResult
     {
 
         /// <summary>
