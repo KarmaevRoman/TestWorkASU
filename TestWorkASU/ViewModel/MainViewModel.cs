@@ -22,24 +22,36 @@ namespace TestWorkASU.ViewModel
         private int cCofficient;
         private ComponentFunctionVM selectedFunctionVM;
 
+        /// <summary>
+        /// коллекция возможных имен функций
+        /// </summary>
         public ObservableCollection<string> ListFunctions
         {
             get => listFunctions;
             set => Set(ref listFunctions, value);
         }
 
+        /// <summary>
+        /// коллекция возможных значений коэффициента C
+        /// </summary>
         public ObservableCollection<int> CoefficientCValues
         {
             get => coefficientCValues;
             set => Set(ref coefficientCValues, value);
         }
 
+        /// <summary>
+        /// коллекция созданных функций
+        /// </summary>
         public ObservableCollection<ComponentFunctionVM> ComponentFunctionsVM
         {
             get => componentFunctionsVM;
             set => Set(ref componentFunctionsVM, value);
         }
 
+        /// <summary>
+        /// значение выбранного имени функции
+        /// </summary>
         public string SelectedNameFunc
         {
             get => selectedNameFunc;
@@ -61,6 +73,9 @@ namespace TestWorkASU.ViewModel
             }
         }
 
+        /// <summary>
+        /// значение коэффициента А выбранной функции
+        /// </summary>
         public string ACofficient
         {
             get => aCofficient;
@@ -87,6 +102,9 @@ namespace TestWorkASU.ViewModel
             }
         }
 
+        /// <summary>
+        /// значение коэффициента B выбранной функции
+        /// </summary>
         public string BCofficient
         {
             get => bCofficient;
@@ -113,6 +131,9 @@ namespace TestWorkASU.ViewModel
             }
         }
 
+        /// <summary>
+        /// значение коэффициента C выбранной функции
+        /// </summary>
         public int CCoefficient
         {
             get => cCofficient;
@@ -126,6 +147,9 @@ namespace TestWorkASU.ViewModel
 
         }
 
+        /// <summary>
+        /// выбранная функция в таблице
+        /// </summary>
         public ComponentFunctionVM SelectedFunctionVM
         {
             get => selectedFunctionVM;
@@ -140,9 +164,16 @@ namespace TestWorkASU.ViewModel
                     CCoefficient = selectedFunctionVM.CCoefficient;
                 }                
             }
-        }           
-        
+        }
+
+        /// <summary>
+        /// комманда для кнопки "Добавить строчку"
+        /// </summary>
         public ICommand AddElement { get; }
+
+        /// <summary>
+        /// комманда для кнопки "Удалить строчку"
+        /// </summary>
         public ICommand DeletedElement { get; }
 
         public MainViewModel()

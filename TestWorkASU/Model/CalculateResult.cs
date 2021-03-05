@@ -7,10 +7,19 @@ using TestWorkASU.ViewModel;
 
 namespace TestWorkASU.Model
 {
+    /// <summary>
+    /// класс для расчета значения
+    /// </summary>
     class CalculateResult
     {
-       
 
+        /// <summary>
+        /// метод расчета значения Resalt для экземпляров класса ComponentFunctionVM
+        /// </summary>
+        /// <returns>
+        /// значение типа duble расчитанное в соответствии с параметрами function
+        /// </returns>
+        /// <param name="function">Экземпляр класса ComponentFunctionVM</param>
         public static double Result(ComponentFunctionVM function)
         {
             if (!string.IsNullOrEmpty(function.NameFunction))

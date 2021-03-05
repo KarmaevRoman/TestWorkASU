@@ -8,8 +8,14 @@ using System.Threading.Tasks;
 
 namespace TestWorkASU.ViewModel.Base
 {
-    class BaseViewModel : INotifyPropertyChanged
+    /// <summary>
+    ///Базовый класс ViewModel проекта
+    /// </summary>
+    public class BaseViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// делегат событие для остслеживания изменений свойств
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string PropertyNamy = null)

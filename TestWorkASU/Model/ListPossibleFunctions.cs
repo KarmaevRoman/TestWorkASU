@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace TestWorkASU.Model
 {
+    /// <summary>
+    /// статичный класс для создания коллекции возможных типов функций
+    /// </summary>
     static class ListPossibleFunctions
     {
         private static Dictionary<string, int> listFunctions = new Dictionary<string, int>
@@ -18,11 +21,17 @@ namespace TestWorkASU.Model
             { "5-ой степени", 4 }
         };
 
+        /// <summary>
+        /// возвращает колекцию типа Dictionary где ключ возможное наименование функции, а значение - колличество "0" в коэффициенте C
+        /// </summary>
         public static Dictionary<string, int> ListFunctions 
         {
             get => listFunctions;           
         }
 
+        /// <summary>
+        /// статический метод, который возвращает коллекцию возможных типов функции
+        /// </summary>
         public static ObservableCollection<string> GetListFunctions ()
         {
             var functions = new ObservableCollection<string>();
