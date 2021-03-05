@@ -14,8 +14,8 @@ namespace TestWorkASU.ViewModel
         private double aCoefficient;
         private double bCoefficient;
         private int cCoefficient;
-        private double x;
-        private double y;
+        private string x = "0";
+        private string y = "0";
         private double result;
 
         public string NameFunction
@@ -54,21 +54,43 @@ namespace TestWorkASU.ViewModel
                 Result = CalculateResult.Result(this);
             }
         }
-        public double X
+        public string X
         {
             get => x;
             set
             {
-                Set(ref x, value);
+                if (double.TryParse(value, out double a))
+                {
+                    Set(ref x, value);                    
+                }
+                else if (string.IsNullOrEmpty(value))
+                {
+                    Set(ref x, "0");                    
+                }
+                else
+                {
+                    X = x;
+                }                
                 Result = CalculateResult.Result(this);
             }
         }
-        public double Y
+        public string Y
         {
             get => y;
             set
             {
-                Set(ref y, value);
+                if (double.TryParse(value, out double a))
+                {
+                    Set(ref y, value);
+                }
+                else if (string.IsNullOrEmpty(value))
+                {
+                    Set(ref y, "0");
+                }
+                else
+                {
+                    Y = y;
+                }
                 Result = CalculateResult.Result(this);
             }
         }

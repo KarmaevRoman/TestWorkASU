@@ -15,7 +15,7 @@ namespace TestWorkASU.Model
         {
             if (!string.IsNullOrEmpty(function.NameFunction))
             {
-                return function.ACoefficient * Math.Pow(function.X, ListPossibleFunctions.ListFunctions[function.NameFunction] + 1) + function.BCoefficient * Math.Pow(function.Y, ListPossibleFunctions.ListFunctions[function.NameFunction]) + function.CCoefficient;
+                return function.ACoefficient * Math.Pow(double.Parse(function.X), ListPossibleFunctions.ListFunctions[function.NameFunction] + 1) + function.BCoefficient * Math.Pow(double.Parse(function.Y), ListPossibleFunctions.ListFunctions[function.NameFunction]) + function.CCoefficient;
             }
 
             else
