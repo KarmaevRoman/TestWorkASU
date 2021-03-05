@@ -12,8 +12,8 @@ namespace TestWorkASU.ViewModel
         private double aCoefficient;
         private double bCoefficient;
         private int cCoefficient;
-        private string x = "";
-        private string y = "";
+        private string x = "0";
+        private string y = "0";
         private double result;
 
         /// <summary>
