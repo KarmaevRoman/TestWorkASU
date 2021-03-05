@@ -50,7 +50,14 @@ namespace TestWorkASU.ViewModel
                 CoefficientCValues = CValues.GetCValues(ListPossibleFunctions.ListFunctions[SelectedNameFunc]);
                 if (componentFunctionsVM.Count >= 1 && SelectedNameFunc!=null && SelectedFunctionVM!=null)
                 SelectedFunctionVM.NameFunction = value;
-                CCoefficient = coefficientCValues[0];
+                if (selectedFunctionVM != null && selectedFunctionVM.CCoefficient != 0 && CoefficientCValues.Contains(selectedFunctionVM.CCoefficient))
+                {
+                    CCoefficient = selectedFunctionVM.CCoefficient;
+                }
+                else if (CoefficientCValues != null)
+                {
+                    CCoefficient = coefficientCValues[0];
+                }                
             }
         }
 
@@ -125,10 +132,13 @@ namespace TestWorkASU.ViewModel
             set
             {
                 Set(ref selectedFunctionVM, value);
-                SelectedNameFunc = selectedFunctionVM.NameFunction;
-                ACofficient = selectedFunctionVM.ACoefficient.ToString();
-                BCofficient = selectedFunctionVM.BCoefficient.ToString();
-                CCoefficient = selectedFunctionVM.CCoefficient;
+                if (selectedFunctionVM != null)
+                {
+                    SelectedNameFunc = selectedFunctionVM.NameFunction;
+                    ACofficient = selectedFunctionVM.ACoefficient.ToString();
+                    BCofficient = selectedFunctionVM.BCoefficient.ToString();
+                    CCoefficient = selectedFunctionVM.CCoefficient;
+                }                
             }
         }           
         
