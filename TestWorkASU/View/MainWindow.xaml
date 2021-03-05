@@ -71,7 +71,16 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button Width="110" Height="30" Content="Добавить строку" Grid.Column="1" HorizontalAlignment="Center" Command="{Binding AddElement}"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Width="110" Height="30" Content="Добавить строку" Grid.Row="1" HorizontalAlignment="Center" Command="{Binding AddElement}"/>
+                <Button Width="110" Height="30" Content="Удалить строку" Grid.Row="2" HorizontalAlignment="Center" Command="{Binding DeletedElement}"/>
+            </Grid>            
         </Grid>
 
     </Grid>
