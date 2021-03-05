@@ -133,12 +133,14 @@ namespace TestWorkASU.ViewModel
         }           
         
         public ICommand AddElement { get; }
+        public ICommand DeletedElement { get; }
 
         public MainViewModel()
         {
             ListFunctions = ListPossibleFunctions.GetListFunctions();
             ComponentFunctionsVM = new ObservableCollection<ComponentFunctionVM>();            
             AddElement = new LambdaCommand(OnAddElementExecute, CanAddElementExecute);
+            DeletedElement = new LambdaCommand(OnDeletedElementExecute, CanDeletedElementExecute);
         }
         private bool CanAddElementExecute(object p) => true;
 
@@ -149,6 +151,13 @@ namespace TestWorkASU.ViewModel
                 BCoefficient = double.Parse(bCofficient),
                 CCoefficient = cCofficient,
                 NameFunction = selectedNameFunc});
+        }
+
+        private bool CanDeletedElementExecute(object p) => selectedFunctionVM != null;
+
+        private void OnDeletedElementExecute(object p)
+        {
+            ComponentFunctionsVM.Remove(selectedFunctionVM);     
         }
     }
 }
